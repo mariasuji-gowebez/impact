@@ -1,0 +1,69 @@
+// shadow effect button
+.button {
+    padding: 14px 70px ;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #f4f0ff;
+    text-align: center;
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+  }
+  
+  .button::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 2px solid rgba(255, 255, 255, 0.151);
+    height: 100%;
+    width: 100%;
+    background-color: #00796b;
+    border-radius: 50px;
+   
+    box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.274);
+    z-index: -1;
+  }
+  
+  .button::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   
+    box-shadow: inset 0 0 12px rgba(151, 200, 255, 0.199);
+    border-radius: 50px;border: 2px solid rgba(255, 255, 255, 0.562);
+    opacity: 0;
+    z-index: -1;
+    transition: all .3s ease-in;
+  }
+  
+  .button:hover::after {
+    opacity: 1;
+  }
+  
+  .button-border {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 50px;
+    z-index: -1;
+  }
+  
+  .button-border::before {
+    content: "";
+    position: absolute;
+    border-radius: 50px;
+    padding: 1px;
+    inset: 0;
+    -webkit-mask: linear-gradient(#ffffff0c 0 0) content-box,linear-gradient(#ffffff00 0 0);
+    -webkit-mask-composite: xor;
+    pointer-events: none;
+  }
